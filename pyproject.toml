@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "daily-brief-agent"
+version = "0.1.0"
+description = "Daily Brief Agent for RSS aggregation and reporting."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Daily Brief Agent Contributors" }]
+license = { text = "MIT" }
+dependencies = [
+  "feedparser>=6.0.11",
+  "PyYAML>=6.0.1",
+  "python-dotenv>=1.0.1",
+  "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "ruff>=0.4.0",
+]
+
+[project.scripts]
+daily-brief-agent = "daily_brief_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["daily_brief_agent*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

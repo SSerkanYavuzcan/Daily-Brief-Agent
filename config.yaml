@@ -1,0 +1,11 @@
+storage:
+  db_path: "daily_brief_agent.sqlite"
+  reports_dir: "reports"
+feeds:
+  - name: "Hacker News"
+    url: "https://hnrss.org/frontpage"
+    category: "Tech"
+delivery:
+  telegram:
+    enabled: false
+timezone: "UTC"
